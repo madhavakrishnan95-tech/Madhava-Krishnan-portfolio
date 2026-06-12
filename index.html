@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madhava Krishnan A | Public Policy Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1C3654;
+    --navy-light: #2d4d73;
+    --accent: #C9A35D;
+    --gray: #5A5A5A;
+    --lgray: #8a8f98;
+    --bg: #fbfbfd;
+    --card-bg: #ffffff;
+    --border: #e8e9ed;
+    --max-width: 980px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #2b2f36;
+    background: var(--bg);
+    line-height: 1.65;
+  }
+
+  a { color: var(--navy); text-decoration: none; }
+  a:hover { color: var(--accent); }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-logo {
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--navy);
+    letter-spacing: 0.02em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a4f57;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-toggle { display: none; }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 90px 0 70px;
+    background: linear-gradient(135deg, var(--navy) 0%, #28466b 60%, #3a5d86 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,163,93,0.18) 0%, transparent 70%);
+  }
+  .hero .container { position: relative; z-index: 1; }
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 6vw, 56px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .hero .subtitle {
+    font-size: clamp(16px, 2.4vw, 20px);
+    color: #d6deea;
+    font-weight: 400;
+    max-width: 640px;
+    margin-bottom: 28px;
+  }
+  .hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--navy);
+  }
+  .btn-primary:hover {
+    background: #ddc086;
+    color: var(--navy);
+    transform: translateY(-1px);
+  }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+  }
+  .btn-outline:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+  }
+
+  /* ===== SECTIONS ===== */
+  section { padding: 64px 0; }
+  section.alt { background: #f3f5f8; }
+  .section-head {
+    margin-bottom: 36px;
+  }
+  .section-tag {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .section-head h2 {
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+  }
+  .lead {
+    font-size: 17px;
+    color: #444;
+    max-width: 760px;
+  }
+
+  /* ===== EXPERIENCE ===== */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .exp-date {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--lgray);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding-top: 3px;
+  }
+  .exp-role h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1d2330;
+    margin-bottom: 2px;
+  }
+  .exp-org {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--lgray);
+    margin-bottom: 10px;
+  }
+  .exp-role ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .exp-role li {
+    font-size: 14.5px;
+    color: #4a4f57;
+    padding-left: 18px;
+    position: relative;
+  }
+  .exp-role li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  /* ===== PROJECTS ===== */
+  .project-group { margin-bottom: 40px; }
+  .project-group h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+  }
+  .project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(28,54,84,0.08);
+  }
+  .project-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1d2330;
+    margin-bottom: 8px;
+  }
+  .project-card p {
+    font-size: 13.5px;
+    color: #5e636c;
+  }
+
+  /* ===== WRITING / PUBLICATIONS ===== */
+  .pub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .pub-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .pub-card .pub-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+  }
+  .pub-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1d2330;
+  }
+  .pub-card p {
+    font-size: 14px;
+    color: #5e636c;
+  }
+  .pub-card .pub-link {
+    margin-top: auto;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ===== EDUCATION ===== */
+  .edu-item {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .edu-item:last-child { border-bottom: none; }
+  .edu-item .edu-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .edu-item h3 { font-size: 16px; font-weight: 700; color: #1d2330; }
+  .edu-date { font-size: 13px; color: var(--lgray); font-weight: 600; }
+  .edu-org { font-size: 14px; font-style: italic; color: var(--lgray); margin-top: 2px; }
+  .edu-desc { font-size: 14px; color: #5e636c; margin-top: 6px; }
+
+  /* ===== SKILLS ===== */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .skill-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+  .skill-card h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .skill-card p { font-size: 13.5px; color: #5e636c; }
+
+  /* ===== CONTACT / FOOTER ===== */
+  .contact-section {
+    background: var(--navy);
+    color: #fff;
+    text-align: center;
+  }
+  .contact-section h2 { color: #fff; }
+  .contact-section .lead { color: #c4cee0; margin: 0 auto 28px; }
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  footer {
+    text-align: center;
+    padding: 24px 0;
+    font-size: 13px;
+    color: var(--lgray);
+    background: var(--navy);
+  }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 720px) {
+    .nav-links {
+      position: fixed;
+      top: 64px;
+      right: 0;
+      left: 0;
+      background: #fff;
+      flex-direction: column;
+      padding: 16px 24px;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+      transform: translateY(-110%);
+      transition: transform 0.25s ease;
+    }
+    .nav-links.open { transform: translateY(0); }
+    .nav-toggle {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--navy);
+    }
+    .exp-item { grid-template-columns: 1fr; gap: 6px; }
+    .exp-date { padding-top: 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Madhava Krishnan A</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Research</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">Public Policy Researcher</div>
+    <h1>Madhava Krishnan A</h1>
+    <p class="subtitle">Technology, Climate, Environment and Urban Governance &mdash; MPP, IIT Delhi (2026). Engineering foundations meet interdisciplinary policy research, spanning GIS-based spatial analysis, digital public infrastructure, and evidence-based policymaking.</p>
+    <div class="hero-links">
+      <a class="btn btn-primary" href="assets/MadhavaKrishnan_CV.pdf" target="_blank">Download Resume</a>
+      <a class="btn btn-outline" href="mailto:madhavakrishnan95@gmail.com">Email Me</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/madhava-krishnan-02a05a130" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">About</div>
+      <h2>Profile</h2>
+    </div>
+    <p class="lead">
+      Electronics and communication engineer turned public policy researcher, with an MPP from IIT Delhi (May 2026)
+      focused on technology governance, climate and environmental policy, and evidence-based policymaking. Brings a
+      rare combination of engineering foundations and interdisciplinary policy training, with hands-on experience
+      spanning qualitative and quantitative research, GIS-based spatial analysis, PESTLE-based strategic foresight,
+      institutional analysis, and policy brief production. Has worked across digital public infrastructure, groundwater
+      governance, urban climate resilience, platform regulation, cooperative federalism, and international development.
+      Equally comfortable with desk-based analytical work, field-based primary research, stakeholder engagement, and
+      policy communication for technical and non-technical audiences. Available immediately for full-time roles in
+      New Delhi.
+    </p>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Career</div>
+      <h2>Professional Experience</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="exp-item">
+        <div class="exp-date">Nov 2025 &ndash; Feb 2026</div>
+        <div class="exp-role">
+          <h3>GIS Research Consultant (Independent)</h3>
+          <div class="exp-org">Article 14, Earth Journalism Network&ndash;funded investigation</div>
+          <ul>
+            <li>Provided GIS analysis for an investigative piece by Makepeace Sitlhou and Greeshma Kuthar on forest cover change in Manipur, published in Article 14 and credited as "With GIS inputs from Madhava Krishnan."</li>
+            <li>Conducted satellite imagery analysis and spatial overlay of poppy cultivation extent with historical forest cover data to assess temporal patterns of deforestation and land use change across the region.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">May &ndash; Jul 2025</div>
+        <div class="exp-role">
+          <h3>Policy Research Intern</h3>
+          <div class="exp-org">WELL Labs (Water, Environment, Land and Livelihoods Lab), Bengaluru</div>
+          <ul>
+            <li>Conducted in-depth policy analysis on groundwater governance, mapping inter-scheme coordination across three centrally sponsored schemes (Jal Jeevan Mission, AMRUT, PMKSY) and identifying convergence opportunities and implementation bottlenecks.</li>
+            <li>Produced policy briefs, issue notes, and strategy documents synthesising primary field research with government data and academic literature, for internal stakeholders and government partners.</li>
+            <li>Designed institutional frameworks with indicator-based monitoring and evaluation pathways for integrating para-hydrologist networks into Karnataka's groundwater management system.</li>
+            <li>Conducted 2 field visits to Chintamani district and facilitated 1 focus group discussion with ward residents to gather primary data on last-mile groundwater service delivery.</li>
+            <li>Tracked national policy and regulatory developments across urban and rural water governance programs, synthesising trends into briefings for program leadership.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Jan &ndash; Jun 2020</div>
+        <div class="exp-role">
+          <h3>R&amp;D Intern</h3>
+          <div class="exp-org">Hoffensoft Technologies, Coimbatore</div>
+          <ul>
+            <li>Designed and built an IoT-based environmental monitoring prototype covering sensors, firmware, and a real-time data analytics dashboard, gaining hands-on experience in technology development and field data pipelines.</li>
+            <li>Conducted basin-level field data collection and coordinated cross-functional teams on prototype deployment and iterative testing.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Jun 2020 &ndash; May 2021</div>
+        <div class="exp-role">
+          <h3>Maintenance Engineer Trainee</h3>
+          <div class="exp-org">Pasteur Institute of India (Government of India Undertaking), Coonoor</div>
+          <ul>
+            <li>Managed technology systems operations and regulatory compliance in a Government of India R&amp;D establishment, producing compliance reports and operational logs for government audits.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH & PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Research</div>
+      <h2>Research &amp; Selected Projects</h2>
+    </div>
+
+    <div class="project-group">
+      <h3>Climate, Environment &amp; Urban Resilience</h3>
+      <div class="project-grid">
+        <div class="project-card">
+          <h4>Urban Resilience through Sponge Parks (Master's Thesis, IIT Delhi)</h4>
+          <p>GIS-based SMCA framework using weighted, multi-criteria indicators to prioritise Nature-Based Solutions (NbS) infrastructure sites across Chennai. Integrated spatial, socio-economic, and hydrological data to produce evidence-based planning recommendations for urban flood management.</p>
+        </div>
+        <div class="project-card">
+          <h4>Landslide Susceptibility Modelling, Uttarkashi</h4>
+          <p>Multi-layer GIS risk zonation combining topographic, hydrological, and land-use indicators to generate a quantitative susceptibility index for climate-driven geohazard risk.</p>
+        </div>
+        <div class="project-card">
+          <h4>Chennai Floods Impact Assessment</h4>
+          <p>Assessed climate-driven flood risk using spatial and socio-economic data, examining vulnerability of urban communities and infrastructure to extreme precipitation events.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-group">
+      <h3>Strategic Foresight &amp; Technology Governance</h3>
+      <div class="project-grid">
+        <div class="project-card">
+          <h4>Food Security Futures 2050</h4>
+          <p>PESTLE-based strategic foresight exercise examining long-term trajectories of climate change, technological disruption, and geopolitical shifts on global food systems. Developed scenario pathways and policy recommendations across a 25-year horizon, covering international governance, trade, and resource security dimensions.</p>
+        </div>
+        <div class="project-card">
+          <h4>ONDC Digital Commerce &amp; Platform Governance Study</h4>
+          <p>Mixed-methods primary research on India's Open Network for Digital Commerce (ONDC) using semi-structured interviews with two MSMEs (Aruvi Eco Organics and Bhooshan Enterprises). Assessed the Beckn protocol as a model of Digital Public Infrastructure (DPI), with analysis of platform governance, algorithmic accountability, equitable access, and technology sovereignty implications.</p>
+        </div>
+        <div class="project-card">
+          <h4>DESMAP Spatial Equity Framework</h4>
+          <p>GIS-based analysis assessing equity in digital and physical infrastructure allocation using multi-layer spatial indicators for participatory planning.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-group">
+      <h3>Governance, Institutions &amp; Social Policy</h3>
+      <div class="project-grid">
+        <div class="project-card">
+          <h4>NITI Aayog Institutional Reform Strategy</h4>
+          <p>Analysed cooperative federalism structures and inter-governmental coordination mechanisms; produced recommendations for decentralised planning reform benchmarked against international institutional models.</p>
+        </div>
+        <div class="project-card">
+          <h4>Delhi Water Crisis Policy Analysis</h4>
+          <p>Mapped the stakeholder ecosystem across public utilities, informal sector actors, and regulatory bodies, assessing governance failures using supply-demand and political economy frameworks.</p>
+        </div>
+        <div class="project-card">
+          <h4>CBI Institutional Drift Analysis</h4>
+          <p>Applied Mahoney-Thelen theory of gradual institutional change to examine veto-player dynamics, accountability gaps, and reform pathways in India's premier investigative agency.</p>
+        </div>
+        <div class="project-card">
+          <h4>Bonded Labour Recruitment Study</h4>
+          <p>Regulatory gap analysis benchmarking India's legal framework against international standards, with cross-sectoral implications for labour and inclusive development policy.</p>
+        </div>
+        <div class="project-card">
+          <h4>Katwaria Sarai Community Governance Study</h4>
+          <p>Multi-method fieldwork using household surveys and stakeholder interviews to produce evidence-based community governance recommendations.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WRITING & PUBLICATIONS -->
+<section id="writing" class="alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Publications</div>
+      <h2>Writing &amp; Published Work</h2>
+    </div>
+    <div class="pub-grid">
+      <div class="pub-card">
+        <div class="pub-tag">Investigative Journalism &mdash; GIS Contribution</div>
+        <h4>Manipur's Vanishing Forests: Satellite Data, RTIs Undercut BJP's Poppy Narrative As Spark For Conflict, Ethnic Cleansing</h4>
+        <p>Provided GIS analysis and satellite imagery overlays for this Article 14 / Earth Journalism Network investigation by Makepeace Sitlhou and Greeshma Kuthar, credited as "With GIS inputs from Madhava Krishnan."</p>
+        <a class="pub-link" href="https://article-14.com/post/manipur-s-vanishing-forests-satellite-data-rtis-undercut-bjp-s-poppy-narrative-as-spark-for-conflict-ethnic-cleansing-699288b879630" target="_blank">Read on Article 14 &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Background</div>
+      <h2>Education</h2>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-top">
+        <h3>Master of Public Policy (MPP)</h3>
+        <span class="edu-date">May 2026</span>
+      </div>
+      <div class="edu-org">Indian Institute of Technology Delhi (IIT Delhi), School of Public Policy</div>
+      <div class="edu-desc">Thesis: GIS-based Spatial Multi-Criteria Analysis (SMCA) for Nature-Based Solutions prioritisation in urban flood management, Chennai. Built a multi-criteria indicator framework integrating spatial, hydrological, and socio-economic data layers to produce evidence-based infrastructure planning recommendations.</div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-top">
+        <h3>Bachelor of Engineering, Electronics and Communication Engineering</h3>
+        <span class="edu-date">2016 &ndash; 2020</span>
+      </div>
+      <div class="edu-org">Kumaraguru College of Technology (KCT), Coimbatore | Anna University</div>
+      <div class="edu-desc">Coursework and projects in signal processing, embedded systems, IoT systems design, and data communication networks.</div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-top">
+        <h3>Master of Arts, Urban Development</h3>
+        <span class="edu-date">2021 &ndash; 2024</span>
+      </div>
+      <div class="edu-org">Indira Gandhi National Open University (IGNOU)</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Capabilities</div>
+      <h2>Competencies &amp; Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h4>Research Methods</h4>
+        <p>Qualitative methods (focus group discussions, semi-structured interviews, ethnography, document analysis, thematic coding), quantitative methods (multi-criteria analysis, indicator frameworks, SMCA, PESTLE scenario planning), mixed methods design, Python for data analysis.</p>
+      </div>
+      <div class="skill-card">
+        <h4>Spatial Data &amp; GIS</h4>
+        <p>ArcGIS and QGIS for spatial analysis and mapping, multi-layer indicator-based frameworks, DEM and hydrological analysis, land-use and socio-economic data integration, risk zonation and infrastructure prioritisation.</p>
+      </div>
+      <div class="skill-card">
+        <h4>Strategic Foresight</h4>
+        <p>PESTLE-based scenario development and trend analysis, long-horizon policy forecasting, international benchmarking and peer-country comparison, technology trajectory and ecosystem mapping.</p>
+      </div>
+      <div class="skill-card">
+        <h4>Policy Writing &amp; Communication</h4>
+        <p>Policy briefs, research reports, issue notes, strategy documents, concept notes, technical memos, and presentations for government, research, and public audiences.</p>
+      </div>
+      <div class="skill-card">
+        <h4>Domain Areas</h4>
+        <p>Water and environmental governance, climate resilience and urban flooding, digital public infrastructure and platform regulation, technology governance and AI policy, cooperative federalism and institutional reform, labour and social policy, food and resource security, urban development.</p>
+      </div>
+      <div class="skill-card">
+        <h4>Tools</h4>
+        <p>Python (data analysis and visualisation), ArcGIS, QGIS, Microsoft Office Suite, data synthesis from multi-source and large datasets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:18px;">
+      <div class="section-tag">Get in touch</div>
+      <h2>Contact</h2>
+    </div>
+    <p class="lead" style="max-width:600px;">
+      Available immediately for full-time roles in New Delhi. Open to opportunities in technology governance,
+      climate and environmental policy, and evidence-based policymaking.
+    </p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:madhavakrishnan95@gmail.com">madhavakrishnan95@gmail.com</a>
+      <a class="btn btn-outline" href="tel:+919543468759">+91 95434 68759</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/madhava-krishnan-02a05a130" target="_blank">LinkedIn</a>
+      <a class="btn btn-outline" href="assets/MadhavaKrishnan_CV.pdf" target="_blank">Download Resume</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Madhava Krishnan A &mdash; Public Policy Researcher, New Delhi
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+</script>
+
+</body>
+</html>
